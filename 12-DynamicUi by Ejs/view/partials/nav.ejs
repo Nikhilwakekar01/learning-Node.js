@@ -1,0 +1,20 @@
+<nav class="bg-[#06BEE1] w-full h-36 flex justify-center items-center">
+  <div
+    class="flex justify-between items-center hover:scale-[1.05] transition duration-100 hover:cursor-pointer w-fit h-fit mx-6"
+  >
+    <a
+      class="<%=currentPage=== 'home' ? 'px-2 bg-[#74d9ee] rounded-md ': 'bg-[#06BEE1]'%> text-black font-mono font-bold w-fit h-fit"
+      href="/"
+      >home page</a
+    >
+  </div>
+  <div
+    class="flex justify-between items-center hover:scale-[1.05] transition duration-100 hover:cursor-pointer w-fit h-fit mx-6"
+  >
+    <a
+      class="<%=currentPage=== 'addhome' ? 'px-2 bg-[#74d9ee] rounded-md': 'bg-[#06BEE1]'%> text-black font-mono font-bold w-fit h-fit"
+      href="/host/add-home"
+      >Add_Home</a
+    >
+  </div>
+</nav>

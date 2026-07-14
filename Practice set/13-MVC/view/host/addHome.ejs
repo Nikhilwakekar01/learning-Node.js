@@ -1,0 +1,26 @@
+<%- include('../partials/head')%>
+</head>
+<body class="bg-[#FFFFFC] flex-col justify-items-center">
+    <%- include('../partials/nav')%>
+    <header class="mt-6 flex justify-center items-center text-black font-mono font-bold text-4xl">
+        <h1>Register your home here</h1>
+    </header>
+    <main class="mt-10">
+        <form class=" bg-[#87daf5]  border rounded-lg flex justify-center w-fit h-fit p-5 py-10 flex-col items-center justify-item-center shadow-md backdrop:blur-sm shadow-slate-900" action='/host/add-home' method="POST">
+            <input class="bg-white text-gray-700 m-5 border outline-none hover:shadow-xl shadow-md transition duration-300 rounded-xl p-2 hover:scale-[1.02]" placeholder="enter the home name " type= 'text' name='home'></input>
+
+            <input class="bg-white text-gray-700 m-5 border outline-none hover:shadow-xl shadow-md transition duration-300 rounded-xl p-2 hover:scale-[1.02]" placeholder="Contact " type= 'number' name='contact'></input>
+
+            <input class="bg-white text-gray-700 m-5 border outline-none hover:shadow-xl shadow-md transition duration-300 rounded-xl p-2 hover:scale-[1.02]" placeholder="Adress " type= 'text' name='address'></input>
+
+            <input class="bg-white text-gray-700 m-5 border outline-none hover:shadow-xl shadow-md transition duration-300 rounded-xl p-2 hover:scale-[1.02]" placeholder="₹ Rent of house " type= 'number' name='rent'></input>
+
+            <input class="bg-white text-gray-700 m-5 border outline-none hover:shadow-xl shadow-md transition duration-300 rounded-xl p-2 hover:scale-[1.02]" placeholder="Image url " type='url' name='photos'></input>
+
+            <input class="border  shadow-slate-700 rounded-lg bg-white text-black w-fit h-fit p-2 px-4 shadow-md hover:shadow-xl transition duration-300 hover:scale-[1.02]" type="submit" value='Add'></input>
+        </form>
+
+    </main>
+    
+</body>
+</html>
