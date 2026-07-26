@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const rootdir = require("../util/pathUtil");
+const favourite = require("./favouriteModel");
 
 // fake storage
 
@@ -15,11 +16,25 @@ class Home {
 
   save() {
     Home.fetchAll((houseList) => {
-      this.id = Math.random().toString();
-      houseList.push(this);
+      if (this.id) {
+        //for edit home
+        houseList = houseList.map((home) => {
+          // if (this.id === home.id) {
+          //   return this;
+          // } else {
+          //   return home;
+          // }
+
+          return this.id === home.id ? this : home;
+        });
+      } else {
+        //for adding new home
+        this.id = Math.random().toString();
+        houseList.push(this);
+      }
       const filePath = path.join(rootdir, "data", "home.json");
       fs.writeFile(filePath, JSON.stringify(houseList), (err) => {
-        console.log(err);
+        console.log("me error hu re", err);
       });
     });
   }
@@ -35,6 +50,18 @@ class Home {
     this.fetchAll((homes) => {
       const homeFound = homes.find((home) => home.id === homeId);
       callback(homeFound);
+    });
+  }
+
+  static deleteById(homeId, callback) {
+    this.fetchAll((homes) => {
+      homes = homes.filter((home) => {
+        return home.id !== homeId;
+      });
+      const filePath = path.join(rootdir, "data", "home.json");
+      fs.writeFile(filePath, JSON.stringify(homes), (error) => {
+        favourite.favDeleteById(homeId, callback);
+      }); //yaha data overwrite ho raha he
     });
   }
 }

@@ -21,6 +21,19 @@ class favourite {
       callback(!err ? JSON.parse(data) : []);
     });
   }
+
+  static favDeleteById(homeId, callback) {
+    console.log("req ali model mdhe");
+    favourite.getFavourite((homeIds) => {
+      console.log("req ali ander get fav cha");
+      homeIds = homeIds.filter((id) => {
+        console.log(id, homeId);
+        return homeId !== id;
+      });
+      const filePath = path.join(rootdir, "data", "favourite.json");
+      fs.writeFile(filePath, JSON.stringify(homeIds), callback);
+    });
+  }
 }
 
 module.exports = favourite;

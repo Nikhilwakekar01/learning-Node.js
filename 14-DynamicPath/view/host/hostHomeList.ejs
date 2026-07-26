@@ -41,12 +41,15 @@
             </p>
 
             <div class="mt-4 flex flex-wrap gap-2">
-              <span class="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700">
-                Available
-              </span>
-              <span class="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700">
-                Verified Home
-              </span>
+              <a href="/host/editHome/<%=house.id%>?editing=true" class="rounded-full bg-green-400 hover:cursor-pointer px-3 py-1 text-sm text-blue-700">
+                Edit
+              </a>
+              <form action="/host/deleteHome/<%=house.id%>" method="POST">
+                <button type="submit" class="rounded-full bg-red-400 hover:cursor-pointer px-3 py-1 text-sm text-gray-700">
+                Delete
+                </button>
+              </form>
+              
             </div>
           </div>
         </div>

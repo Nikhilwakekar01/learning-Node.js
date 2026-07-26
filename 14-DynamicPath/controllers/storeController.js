@@ -77,6 +77,17 @@ const getHomeDetails = (req, res, next) => {
   });
 };
 
+const postDeleteFavourite = (req, res, next) => {
+  const homeId = req.params.homeId;
+  console.log("delete the home from fav", homeId);
+  favourite.favDeleteById(homeId, (error) => {
+    if (error) {
+      console.log("error while deleting favourite", error);
+    }
+    res.redirect("/favouriteList");
+  });
+};
+
 module.exports = {
   getHome,
   getBookings,
@@ -84,4 +95,5 @@ module.exports = {
   getHomeList,
   getHomeDetails,
   addFavouriteHome,
+  postDeleteFavourite,
 };
