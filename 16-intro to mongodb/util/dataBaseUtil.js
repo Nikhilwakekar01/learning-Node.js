@@ -1,9 +1,9 @@
 const mongo = require("mongodb");
+const dotenv = require("dotenv").config();
 
 const MongoClient = mongo.MongoClient;
 
-const mongoURL =
-  "mongodb+srv://nikhilvakekars_db_user:hYrRicED5lde0ZOo@practiceprojectcluster.ubjwpv8.mongodb.net/?appName=practiceProjectcluster";
+const mongoURL = process.env.URL;
 
 let _db;
 const mongoConnect = (callback) => {

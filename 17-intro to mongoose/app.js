@@ -4,8 +4,9 @@ const { hostRouter, houseList } = require("./Route/hostRouter");
 const path = require("path");
 const rootdir = require("./util/pathUtil");
 const pageNotFound = require("./controllers/error");
-const { mongoConnect } = require("./util/dataBaseUtil");
-const { mongoose } = require("mongoose");
+
+const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 
 const app = express();
 
@@ -25,10 +26,10 @@ app.use(express.static(path.join(rootdir, "public")));
 
 app.use(pageNotFound);
 
-const PORT = 5002;
+const PORT = process.env.PORT;
 
-const DB_Path =
-  "mongodb+srv://nikhilvakekars_db_user:hYrRicED5lde0ZOo@practiceprojectcluster.ubjwpv8.mongodb.net/airbnb?appName=practiceProjectcluster";
+const DB_Path = process.env.URL;
+
 mongoose
   .connect(DB_Path)
   .then(() => {
